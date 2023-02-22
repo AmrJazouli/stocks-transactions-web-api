@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stocksapi
+  labels:
+    app: stocksapi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: stocksapi
+  template:
+    metadata:
+      labels:
+        app: stocksapi
+        
+    spec:
+      containers:
+      - name: stocksapi
+        image: docker.io/amrjazouli/stocksapiproject
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 5000

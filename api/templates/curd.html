@@ -1,0 +1,32 @@
+<html>
+        
+<center>
+    <h1>Read</h1>
+    <button type="button" onclick="window.location.href='/read'">Read Data</button>
+
+    <h1>Insert</h1>
+    <form action="/insert">
+        Stock Symbol: <input name="symbol" type="text" /> <br>
+        Side: <input name="side" type="text" /> <br>
+        <input type="submit" />   
+    </form> 
+ 
+    <h1>Delete</h1>
+    <form action="/delete">
+        Stock Symbol: <input name="symbol" type="text" /> <br>
+        <input type="submit" />   
+    </form>
+
+
+    <h1>Update</h1>
+    <form action="/update">
+        Stock Symbol: <input name="symbol" type="text" /> <br>
+        New Side: <input name="new_side" type="text" /> <br>
+        <input type="submit" />  
+    </form>
+
+
+</center>
+
+</html>
+

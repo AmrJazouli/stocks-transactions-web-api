@@ -1,0 +1,69 @@
+---
+- hosts: all
+  gather_facts: no
+  become: yes
+  tasks:
+  - name: Copy the flask app file to the Vagrant servers
+    copy:  
+      src: /$PWD/app.py
+      dest: /home/vagrant
+      
+  
+  - name: Copy the requirements.txt file to the Vagrant servers
+    copy:
+      src: /$PWD/requirements.txt
+      dest: /home/vagrant
+  
+  - name: installing pip3
+    apt:
+      name: python3-pip
+      update_cache: yes
+
+  - name: Installing requirements.txt
+    pip:
+      requirements: "/vagrant/requirements.txt"
+
+  - name: run flask app
+    shell: |
+      nohup python3 app.py > logs.txt 2>&1 &
+
+
+  #- name: Import the public key used by the package management system
+    #apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=7F0CEB10 state=present
+  #  apt_key: "https://www.mongodb.org/static/pgp/server-6.0.asc"
+    #url: "https://www.mongodb.org/static/pgp/server-5.0.asc"
+  #  state: present
+    #apt_key: keyserver=https://www.mongodb.org/static/pgp/server-6.0.asc
+    
+  #- name: Add MongoDB repository
+    #apt_repository: repo='deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse' state=present
+    #apt_repository: repo="deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" state=present
+  #  repo: "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse"
+  #  state: present
+  #  update_cache: yes
+
+
+
+  #- name: Add mongo ppa key
+    #apt_key: >
+      #keyserver=hkp://keyserver.ubuntu.com:80
+      #id=7F0CEB10
+      #state=present
+
+  #- name: Add mongo sources list
+    #lineinfile: >
+      ##line="deb http://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse"
+      #dest=/etc/apt/sources.list.d/mongodb.list
+      #state=present
+      #create=yes
+
+    
+  #- name: install mongodb
+    #apt: pkg=mongodb-org state=latest update_cache=yes
+    #notify:
+    #- start mongodb
+  #handlers:
+    #- name: start mongodb
+      #service: name=mongod state=started
+
+      
