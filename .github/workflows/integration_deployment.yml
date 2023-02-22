@@ -52,15 +52,15 @@ jobs:
           - 27017:27017
 
  #CD
-  deploy:
-    needs: test 
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "dev-ops-project-app"
-          heroku_email: "amr.jazouli.dsti@gmail.com"
-          appdir: api       
+ # deploy:
+ #   needs: test 
+ #   runs-on: ubuntu-latest
+ #   steps:
+ #     - uses: actions/checkout@v2
+ #     - uses: akhileshns/heroku-deploy@v3.12.12
+ #       with:
+ #         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+ #         heroku_app_name: "dev-ops-project-app"
+ #         heroku_email: "amr.jazouli.dsti@gmail.com"
+ #         appdir: api       
     
