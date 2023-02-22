@@ -256,3 +256,27 @@ minikube dashboard
 ![Web Page21](images/Kubernetes/minikubedashboard_3.png)
 
 
+# Python
+
+## api.py :
+* a decouper par groupes de fonctions ( deocupage fonctionnel avec en tête une utilisation orientée objet pour le futur)
+* Ajout de commentaires
+* Validation d'input necessaire
+
+## test_functionalities.py :
+* Attention les tests sont liés l'un à lautre ( le test d'update supose qu'il y a deja un document a mettre a jour car il a été inseré par le test precedent)
+
+#  Infra as code :
+* separer les fichiers yaml du code python ( suit la mme hierarchie que tu as pour les images de ton README)
+* separer les differents modes de déploiement ( Vagrant vs docker-compose vs k8s) par dossier
+* uniformiser les yzaml entre les types de deploiement ( les credentials de la DB mondo ne sont pas dans k8s par exemple)
+* attention ton mot de passe mongoDB est dans le fichier docker-compose ( hadi khatar ila chafouha 3ndek)
+* enleve les lignes yaml commentés
+
+# CICD :
+* Tu peux mettre en place un code coverage pour voir combien de lignes ton code couvre
+
+# General :
+* decoupe aussi ton README par type ( python, docker, vagrant ....)
+* ajoute un fichier .gitignore et configure le afin de ne pas push des fichiers comme __pycache__ dans ton repo
+* Tu peux lister toutes les remarques que j'ai mis en tant que TODO et separer par type d'approche
