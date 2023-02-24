@@ -27,7 +27,7 @@ myCollection = db.myColl
 
 
 
-app.env = "development"
+#app.env = "development"
 result = ""
 print("I am in flask app")
 
@@ -95,5 +95,5 @@ def update():
 
 if __name__=="__main__":
     
-    app.run(host="0.0.0.0", debug=True)
-
+    #app.run(host="0.0.0.0", debug=True)
+    app.run()
