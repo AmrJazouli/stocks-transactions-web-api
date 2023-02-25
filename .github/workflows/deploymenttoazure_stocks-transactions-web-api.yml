@@ -68,8 +68,9 @@ jobs:
           name: python-app
           path: .
 
-      #- name: List files in working directory
-      #  run: ls -R
+      - name: List files in working directory
+        run: ls
+        #run: ls -R
       
           
       - name: 'Deploy to Azure Web App'
