@@ -43,9 +43,11 @@ jobs:
           path: |
             . 
             !venv/
+          zip-artifact: "true"
           #zip: "true"
+          
 
-        zip-after-upload: "true"
+        #zip-after-upload: "true"
 
 
   deploy:
