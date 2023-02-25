@@ -19,11 +19,11 @@ load_dotenv()
 #client = MongoClient(os.getenv('MONGODB_HOST'))
 #client = MongoClient(os.getenv('MONGOPASS'))
 
-client = MongoClient(os.getenv('MONGODB_CONNSTRING'))
+#client = MongoClient(os.getenv('MONGODB_CONNSTRING'))
 
 
-db = client.curd
-myCollection = db.myColl
+#db = client.curd
+#myCollection = db.myColl
 
 
 
@@ -44,7 +44,7 @@ def insert_val():
     return render_template("curd.html")
 
 
-
+'''
 @app.route("/read")
 def read():
     cursor = myCollection.find()
@@ -89,7 +89,7 @@ def update():
     x = "Record updated"
     return render_template("response.html", res=x)
 
-
+'''
 
 
 
