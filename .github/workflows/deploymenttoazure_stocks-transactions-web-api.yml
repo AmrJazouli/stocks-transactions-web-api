@@ -68,4 +68,4 @@ jobs:
           app-name: 'stocks-transactions-web-api'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BFCA72DCE88C431CA39895AC0AD611C2 }}
-          working-directory: ./api
+          #working-directory: ./api
