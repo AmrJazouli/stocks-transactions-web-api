@@ -68,13 +68,9 @@ jobs:
           name: python-app
           path: .
 
-      - name: List files in working directory
-        run: ls -R
-
-
-
-      #- name: Unzip artifact
-      #  run: unzip python-app.zip      
+      #- name: List files in working directory
+      #  run: ls -R
+      
           
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
