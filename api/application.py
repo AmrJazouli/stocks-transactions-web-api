@@ -1,9 +1,9 @@
 import flask; print(flask.__version__)
 from flask import Flask, render_template, request
 import subprocess as sp
-from pymongo import MongoClient
-import os
-from dotenv import load_dotenv
+#from pymongo import MongoClient
+#import os
+#from dotenv import load_dotenv
 
 
 
@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 app = Flask(__name__)
 
 
-load_dotenv()
+#load_dotenv()
 
 
 #client = MongoClient('mongodb://localhost:27017')
