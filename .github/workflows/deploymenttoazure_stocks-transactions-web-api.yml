@@ -43,7 +43,7 @@ jobs:
           path: |
             . 
             !venv/
-          zip-artifact: "true"
+          #zip-artifact: "true"
           #zip: "true"
           
 
@@ -73,8 +73,8 @@ jobs:
 
 
 
-      - name: Unzip artifact
-        run: unzip python-app.zip      
+      #- name: Unzip artifact
+      #  run: unzip python-app.zip      
           
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
