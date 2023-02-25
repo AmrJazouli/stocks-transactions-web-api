@@ -43,8 +43,9 @@ jobs:
           path: |
             . 
             !venv/
-          zip: "true"
+          #zip: "true"
 
+        zip-after-upload: "true"
 
 
   deploy:
