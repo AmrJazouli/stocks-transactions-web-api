@@ -85,25 +85,19 @@ A test session in the CLI will start and display results of passed and failed te
 
 ![Web Page4](images/Tests/pytest.png)
 
+  
+  
+## 2. Deployment to Azure with application code:  
 
-## 2. Continuous Integration and Continous Delivery pipeline:
+In this case, the startup app is not in the root directory, therefore, we tried to add a startup command such as 'gunicorn --bind=0.0.0.0 --timeout 600 --chdir api application:app', but, the required librairies will not be installed in the virtual environment at the deployment because 'requirements.txt' is not in the root directory.
+According to documentation, in this case, the 'requirements.txt' should be moved to the root directory, which might not be convenient for some reasons (ReasonsToBeDeveloped).
+To deploy the web app by keeping the 'requirements.txt' in the subfolder, we have to update the existing workflow provided at the deployment of the Azure web app.
+The modification will consist in adding the keyword and its value 'package: ./api' in the deployment job at :
+'deploy->steps->name: 'Deploy to Azure Web App'->with->package: ./api'.
 
-I have added a YAML file for CI/CD in the ./github/workflows folder, which will be triggered at every push or pull request on the main branch with Github Actions. 
-The workflow runs a pytest instructions for the continuous integration part to perform functional tests.
-I added in Github Actions Secrets of the Heroku API Key. It also deploys the web application to Heroku platform.
-
-However, before 28th November, the app was deployed to Heroku and the web page was correctly displayed, but since then, an error in the deployment stating that subscription is required to scale dynos to run the app. 
-I tried for two days to reproduce the issue to retrieve logs in order to trace the error, but unsuccesfully.
-As a consequence, the web page can not be displayed again.
-
-![Web Page40](images/CD/error.png)
-
-![Web Page41](images/CD/dynosssubscribe.png)
-
-Even though the workflow run is successful, the web page can not be displayed again on: https://dev-ops-project-app.herokuapp.com/
-
-![Web Page42](images/CD/deploy.png)
-
+Having simultanesouly the startup command mentioned above and the keyword-value 'package: ./api' in the deloyment job will result in this error: 'Error: can't chdir to 'api'.
+    
+  
 
 ## 3. Configuring, provisioning a virtual environment and running the application using the IaC approach:
 
