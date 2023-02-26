@@ -49,9 +49,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    defaults:
-      run:
-        working-directory: ./api
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
@@ -70,3 +67,4 @@ jobs:
           app-name: 'stocks-transactions-web-api'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_84C0B7FEC2254C2583679E71C9D1866D }}
+          package: ./api
