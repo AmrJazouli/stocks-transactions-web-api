@@ -89,13 +89,16 @@ A test session in the CLI will start and display results of passed and failed te
   
 ## 2. Deployment to Azure with application code:  
 
-In this case, the startup app is not in the root directory, therefore, we tried to add a startup command such as 'gunicorn --bind=0.0.0.0 --timeout 600 --chdir api application:app', but, the required librairies will not be installed in the virtual environment at the deployment because 'requirements.txt' is not in the root directory.
-According to documentation, in this case, the 'requirements.txt' should be moved to the root directory, which might not be convenient for some reasons (ReasonsToBeDeveloped).
-To deploy the web app by keeping the 'requirements.txt' in the subfolder, we have to update the existing workflow provided at the deployment of the Azure web app.
-The modification will consist in adding the keyword and its value 'package: ./api' in the deployment job at :
-'deploy->steps->name: 'Deploy to Azure Web App'->with->package: ./api'.
+In this case, the startup app is not in the root directory, therefore, we tried to add a startup command such as **'gunicorn --bind=0.0.0.0 --timeout 600 --chdir api application:app'**, but, the required librairies will not be installed in the virtual environment at the deployment because **'requirements.txt'** is not in the root directory.
 
-Having simultanesouly the startup command mentioned above and the keyword-value 'package: ./api' in the deloyment job will result in this error: 'Error: can't chdir to 'api'.
+According to documentation, in this case, the **'requirements.txt'** should be moved to the root directory, which might not be convenient for some reasons (ReasonsToBeDeveloped).
+
+To deploy the web app by keeping the **'requirements.txt'** in the subfolder, we have to update the existing workflow provided at the deployment of the Azure web app.
+The modification will consist in adding the keyword and its value **'package: ./api'** in the deployment job at :
+
+**'deploy->steps->name: 'Deploy to Azure Web App'->with->package: ./api'**
+
+Having simultanesouly the startup command mentioned above and the keyword-value **'package: ./api'** in the deloyment job will result in this error: **'Error: can't chdir to 'api'**
     
   
 
