@@ -14,12 +14,12 @@ app = Flask(__name__)
 load_dotenv()
 
 
-#client = MongoClient('mongodb://localhost:27017')
+client = MongoClient('mongodb://localhost:27017')
 
 #client = MongoClient(os.getenv('MONGODB_HOST'))
 #client = MongoClient(os.getenv('MONGOPASS'))
 
-client = MongoClient(os.getenv('MONGODB_CONNSTRING'))
+#client = MongoClient(os.getenv('MONGODB_CONNSTRING'))
 
 
 db = client.curd
@@ -27,7 +27,7 @@ myCollection = db.myColl
 
 
 
-app.env = "development"
+#app.env = "development"
 result = ""
 print("I am in flask app")
 
@@ -95,5 +95,4 @@ def update():
 
 if __name__=="__main__":
     
-    app.run(host="0.0.0.0", debug=True)
-
+    app.run()
