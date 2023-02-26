@@ -36,12 +36,16 @@ class TestApp:
         response = app.test_client().get('/insert', data={'symbol': 'TSLA', 'side': 'BUY'})
       
         assert response.status_code == 200
-        assert 'InsertOneResult' in response.data.decode('utf-8')
+        assert 'Record inserted' in response.data.decode('utf-8')
+
+
                          
     
     def test_update_page_route(self):
 
-        response = app.test_client().get('/update', data={'symbol': 'TSLA', 'side': 'SELL'})
+        response_zero = app.test_client().get('/insert', data={'symbol': 'APPL', 'side': 'BUY'})    
+
+        response = app.test_client().get('/update', data={'symbol': 'APPL', 'side': 'SELL'})
                                           
         assert response.status_code == 200
         assert 'Record updated' in response.data.decode('utf-8')
