@@ -5,6 +5,7 @@ from flask import Flask, request, render_template
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import subprocess as sp
+import re
 
 # create a Flask app
 app = Flask(__name__)
@@ -74,13 +75,43 @@ class InsertPage:
     def __init__(self):
         self.mongo = MongoDB()
 
-    # Retrieve the symbol and side from the query string parameters, insert new record into the collection, and render response template with success message
+
+    # Function to validate input values
+    def validate_input(self, symbol, side):
+        # Regular expression pattern to match string of 4 uppercase characters
+        pattern1 = '^[A-Z]{4}$'
+        # Regular expression pattern to match 'BUY' or 'SELL'
+        pattern2 = '^(BUY|SELL)$'
+        if not re.match(pattern1, symbol):
+            # Return error message if symbol does not match pattern1
+            return "Input Error: Symbol must be 4 uppercase characters"
+        elif not re.match(pattern2, side):
+            # Return error message if side does not match pattern2
+            return "Input Error: Side must be 'BUY' or 'SELL'"
+        else:
+            # Return None if input values are valid
+            return None
+
+
+    # Retrieve the symbol and side from the query string parameters, validate the input values, insert new record into the collection if input values are valid, and render response template with success message or error message
     def render(self):
-        symbol = request.args.get("symbol")
-        side = request.args.get("side")
-        self.mongo.insert(symbol, side)
-        x = "Record inserted"
-        return render_template("response.html", res=x)
+        symbol = request.form.get("symbol")
+        side = request.form.get("side")
+        # Validate input values
+        error_message = self.validate_input(symbol, side)
+        if error_message:
+            # Render response template with error message if input values are invalid
+            return render_template("response.html", res=error_message)
+        else:
+            # Insert new record into the collection if input values are valid
+            self.mongo.insert(symbol, side)
+            x = "Record inserted"
+            # Render response template with success message
+            return render_template("response.html", res=x)
+
+
+
+
 
 # DeletePage class for rendering the delete page
 class DeletePage:
@@ -89,28 +120,54 @@ class DeletePage:
 
     # Retrieve the symbol from the query string parameters, delete matching record from the collection, and render response template with success message
     def render(self):
-        symbol = request.args.get("symbol")
-        self.mongo.delete(symbol)
-        x = "Record deleted"
+        # Retrieve the symbol from the query string parameters
+        symbol = request.form.get("symbol")
+        # Regular expression pattern to match string of 4 uppercase characters
+        pattern = '^[A-Z]{4}$'
+        # Input validation
+        if not re.match(pattern, symbol):
+            x = "Input Error: Invalid symbol. Symbol should be a string of 4 uppercase characters."
+        else:
+            # Delete the record with the matching symbol in MongoDB
+            self.mongo.delete(symbol)
+            # Create a response message
+            x = "Record deleted"
         return render_template("response.html", res=x)
+
+
+
+
 
 # Define the UpdatePage class
 class UpdatePage:
     def __init__(self):
         # Initialize a new instance of MongoDB
         self.mongo = MongoDB()
+  
 
     # Define the render function for UpdatePage
     def render(self):
         # Retrieve the symbol and new_side from the query string parameters
-        symbol = request.args.get("symbol")
-        new_side = request.args.get("new_side")
-        # Update the record with the matching symbol in MongoDB with the new side
-        self.mongo.update(symbol, new_side)
-        # Create a response message
-        x = "Record updated"
+        symbol = request.form.get("symbol")
+        new_side = request.form.get("new_side")
+    
+        # Regular expression pattern to match string of 4 uppercase characters
+        pattern = '^[A-Z]{4}$'
+        # Input validation
+        if not re.match(pattern, symbol):
+            x = "Input Error: Invalid symbol. Symbol should be a string of 4 uppercase characters."
+        elif new_side not in ['BUY', 'SELL']:
+            x = "Input Error: Invalid side. Side should be either 'BUY' or 'SELL'."
+        else:
+            # Update the record with the matching symbol in MongoDB with the new side
+            self.mongo.update(symbol, new_side)
+            # Create a response message
+            x = "Record updated"
         # Render the response message in the response template
         return render_template("response.html", res=x)
+
+
+
 
 
 
@@ -139,27 +196,32 @@ def read():
 
 
 # Define the route for the insert page
-@app.route("/insert")
+@app.route("/insert", methods=["GET", "POST"])
 def insert():
     # Render the insert page
     return InsertPage().render()
 
 
 # Define the route for the delete page
-@app.route("/delete")
+@app.route("/delete", methods=["POST", "DELETE"])
 def delete():
     # Render the delete page
     return DeletePage().render()
 
 
 # Define the route for the update page
-@app.route("/update")
+@app.route("/update", methods=["POST", "PUT"])
 def update():
     # Render the update page
     return UpdatePage().render()
 
 
+
+
 # Start the Flask application
 if __name__ == "__main__":
+
     app.run()
+
+
 
