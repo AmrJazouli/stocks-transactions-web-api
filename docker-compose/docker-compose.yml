@@ -1,39 +1,30 @@
 services:
   app:
     build: .
-    #image: stocksapidevopsproject:latest
-    image: amrjazouli/stocksapiproject
+    image: amrjazouli/stockstransactionswebapi
     environment: 
-      - MONGODB_CONNSTRING=mongodb://root:pass@db
+      - MONGODB_CONNSTRING=mongodb://db:27017
     ports:
       - "5000:5000"
-    #volumes:
-    #  - .:/app
     depends_on:
       - db
+
+    networks:
+      - my-net
+
+
   db:
     image: mongo:5.0
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=pass
     #container_name: db
     restart: unless-stopped
-    #image: mongo:4.0.8
-    #hostname: test_mongodb
-    #environment:
-    #  - MONGO_INITDB_DATABASE=stocks_db
-    #  - MONGO_INITDB_ROOT_USERNAME=root
-    #  - MONGO_INITDB_ROOT_PASSWORD=pass
-    #volumes:
-    #  - ./init-db.js:/docker-entrypoint-initdb.d/init-db.js:ro
-    #ports:
-    #  - 27017:27017
 
-    #volumes:
-    #  - mongo-data:/data/db
-    #  - mongo-configdb:/data/configdb  
+    networks:
+      - my-net
 
-#volumes:
-#  mongo-data:
-#  mongo-configdb:
-  #db_data: {}
+  #volumes for app and db:
+
+
+networks:
+  my-net:
+    driver: bridge
+    

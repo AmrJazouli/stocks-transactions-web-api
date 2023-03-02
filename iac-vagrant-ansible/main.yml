@@ -2,9 +2,48 @@
 - hosts: all
   gather_facts: no
   become: yes
+
+  #vars:
+    #api_location: "{{ lookup('file', '../api/ansible_inventory.ini') | dirname }}"
+  #  api_location: C:/Users/Amr.DSTI/Desktop/Done/DevOps/ToShowcase2023/stocks-transactions-web-api/api/app.py
+  #  target_location: /home/vagrant
+
   tasks:
+
+    #- name: Copy application files
+    #  copy:
+    #    src: "{{ api_location }}"
+    #    dest: "{{ target_location }}"
+
+
+    #- name: Check if Users exists
+    #  win_stat:
+        #path: C:/Users/UserOne/Desktop/api/app.py
+        #path: C:\Users
+    #    path: /$PWD
+    #  register: folder_info
+
+    #- debug:
+    #    var: folder_info.stat.checksum  
+
+
+
+
+    #- name: Copy application files
+    #  copy:
+        #src: C:\Users\Amr.DSTI\Desktop\Done\DevOps\ToShowcase2023\stocks-transactions-web-api\api\app.py
+        #src: /Users/Amr.DSTI/Desktop/Done/DevOps/ToShowcase2023/stocks-transactions-web-api/api/app.py 
+    #    src: ~/api/app.py
+    #    dest: /home/vagrant
+
   - name: Copy the flask app file to the Vagrant servers
     copy:  
+      #src: /$PWD/app.py
+      #src: /$PWD/./api/app.py
+      #src: /$PWD/../api/app.py
+      #src: /api/app
+      #src: /$PWD/../api/
+      #src: C:/Users/Amr.DSTI/Desktop/Done/DevOps/ToShowcase2023/stocks-transactions-web-api/api/app.py
       src: /$PWD/app.py
       dest: /home/vagrant
       
@@ -28,42 +67,21 @@
       nohup python3 app.py > logs.txt 2>&1 &
 
 
-  #- name: Import the public key used by the package management system
-    #apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=7F0CEB10 state=present
-  #  apt_key: "https://www.mongodb.org/static/pgp/server-6.0.asc"
-    #url: "https://www.mongodb.org/static/pgp/server-5.0.asc"
-  #  state: present
-    #apt_key: keyserver=https://www.mongodb.org/static/pgp/server-6.0.asc
-    
-  #- name: Add MongoDB repository
-    #apt_repository: repo='deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse' state=present
-    #apt_repository: repo="deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" state=present
-  #  repo: "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse"
-  #  state: present
-  #  update_cache: yes
+  - name: Install MongoDB
+    apt:
+      name: mongodb
+      state: present
+
+  - name: Start MongoDB service
+    service:
+      name: mongodb
+      state: started
+      enabled: yes
 
 
 
-  #- name: Add mongo ppa key
-    #apt_key: >
-      #keyserver=hkp://keyserver.ubuntu.com:80
-      #id=7F0CEB10
-      #state=present
 
-  #- name: Add mongo sources list
-    #lineinfile: >
-      ##line="deb http://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse"
-      #dest=/etc/apt/sources.list.d/mongodb.list
-      #state=present
-      #create=yes
 
-    
-  #- name: install mongodb
-    #apt: pkg=mongodb-org state=latest update_cache=yes
-    #notify:
-    #- start mongodb
-  #handlers:
-    #- name: start mongodb
-      #service: name=mongod state=started
+  
 
       

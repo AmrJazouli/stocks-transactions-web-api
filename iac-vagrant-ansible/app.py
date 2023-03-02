@@ -5,7 +5,6 @@ from flask import Flask, request, render_template
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import subprocess as sp
-import os
 import re
 
 # create a Flask app
@@ -17,8 +16,7 @@ load_dotenv()
 # MongoDB class for interacting with MongoDB database
 class MongoDB:
     def __init__(self):
-        #self.client = MongoClient('mongodb://localhost:27017')
-        self.client = MongoClient(os.getenv('MONGODB_CONNSTRING'))
+        self.client = MongoClient('mongodb://localhost:27017')
         self.db = self.client.curd
         self.myCollection = self.db.myColl
 
@@ -223,7 +221,8 @@ def update():
 # Start the Flask application
 if __name__ == "__main__":
 
-    app.run()
+    #app.run()
+    app.run(host='0.0.0.0')
 
 
 
