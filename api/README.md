@@ -50,15 +50,15 @@ Create a stock transaction:
 
 In Insert section, type e.g. 'TSLA' in Stock Symbol and 'BUY' in Side, then click on 'Submit'.
 
-![Web Page1](images/FlaskWeb/curd.png)
+![Web Page1](../images/FlaskWeb/curd.png)
 
 A message of successful insert will be displayed:
 
-![Web Page2](images/FlaskWeb/insertsuccessful.png)
+![Web Page2](../images/FlaskWeb/insertsuccessful.png)
 
 Check your MongoDB Database if the record has been inserted correctly:
 
-![Web Page3](images/FlaskWeb/MongoDBInsert.png)
+![Web Page3](../images/FlaskWeb/MongoDBInsert.png)
 
 You can check the same with UPDATE, READ and DELETE operations.
 
@@ -77,7 +77,7 @@ python -m pytest -v -s
 ```
 A test session in the CLI will start and display results of passed and failed tests:
 
-![Web Page4](images/Tests/pytest.png)
+![Web Page4](../images/Tests/pytest.png)
 
 
 ## 2. Deployment to Azure with application code:  

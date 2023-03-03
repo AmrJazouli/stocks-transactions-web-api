@@ -18,8 +18,8 @@ Then, I ran the VM as following:
 vagrant up
 ```
 
-![Web Page43](images/IaC/vagrantup.png)
+![Web Page43](../images/IaC/vagrantup.png)
 
-![Web Page44](images/IaC/vagrantup2.png)
+![Web Page44](../images/IaC/vagrantup2.png)
 
-![Web Page45](images/IaC/frontpage.png)
+![Web Page45](../images/IaC/frontpage.png)

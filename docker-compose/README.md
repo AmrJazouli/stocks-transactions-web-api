@@ -59,32 +59,32 @@ The Docker image should be available on Docker Hub:
 Using the 'docker-compose.yml' file, from the project root directory, I typed the following command:
 
 ```
-.\STOCKS_WEB_APP_DEVOPS_PROJECT>docker-compose up
+docker-compose up
 ```
 
 The web server and MongoDB containers will start, I can check the CLI and the web browser on 
 http://localhost:8000:
 
-![Web Page9](images/Docker_DockerCompose/dockercompose.png)
+![Web Page9](../images/Docker_DockerCompose/dockercompose.png)
 
-![Web Page10](images/Docker_DockerCompose/flaskrunning.png)
+![Web Page10](../images/Docker_DockerCompose/flaskrunning.png)
 
-![Web Page11](images/Docker_DockerCompose/FrontPage.png)
+![Web Page11](../images/Docker_DockerCompose/FrontPage.png)
 
 I tried to insert a transaction to check if it is inserted correctly in the MongoDB instance:
 
-![Web Page12](images/Docker_DockerCompose/curdpage.png)
+![Web Page12](../images/Docker_DockerCompose/curdpage.png)
 
 A successful message is displayed as following:
 
-![Web Page13](images/Docker_DockerCompose/insertsuccessful.png)
+![Web Page13](../images/Docker_DockerCompose/insertsuccessful.png)
 
 I tried to update and delete to check the other CURD operations:
 
-![Web Page14](images/Docker_DockerCompose/updateop.png)
+![Web Page14](../images/Docker_DockerCompose/updateop.png)
 
-![Web Page15](images/Docker_DockerCompose/updatesuccessful.png)
+![Web Page15](../images/Docker_DockerCompose/updatesuccessful.png)
 
-![Web Page16](images/Docker_DockerCompose/deleteop.png)
+![Web Page16](../images/Docker_DockerCompose/deleteop.png)
 
-![Web Page17](images/Docker_DockerCompose/deletesuccessful.png)
+![Web Page17](../images/Docker_DockerCompose/deletesuccessful.png)
