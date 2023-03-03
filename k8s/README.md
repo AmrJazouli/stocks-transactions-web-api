@@ -18,7 +18,7 @@ kubectl apply -f deployment.yml
 kubectl apply -f service.yml
 ```
 
-The web server is running on              :
+The web server is running on :
 
 ![Web Page20](../images/Kubernetes/ServiceRunningPort64164.png)
 
@@ -28,6 +28,10 @@ To check the deployment and pods on the Kubernetes dashboard, I typed the follow
 minikube dashboard
 ```
 
-![Web Page20](../images/Kubernetes/minikubedashboard_1.png)
+![Web Page21](../images/Kubernetes/minikubedashboard_1.png)
 
-![Web Page21](../images/Kubernetes/minikubedashboard_3.png)
+![Web Page22](../images/Kubernetes/minikubedashboard_3.png)
+
+Then, we connect to the pod of mongodb, to query the database and check if insertion, update and delete operations are performed successfully while we interact with the api through the browser webpage.
+
+![Web Page23](../images/Kubernetes/New/dboperations.png)

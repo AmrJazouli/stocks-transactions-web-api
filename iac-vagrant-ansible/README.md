@@ -20,6 +20,12 @@ vagrant up
 
 ![Web Page43](../images/IaC/vagrantup.png)
 
-![Web Page44](../images/IaC/vagrantup2.png)
+![Web Page44](../images/IaC/New/vagrantansibletasks.png)
 
 ![Web Page45](../images/IaC/frontpage.png)
+
+We make some operations on the api through the browser webpage, and we query the database if operations have been successfully performed.
+
+![Web Page46](../images/IaC/New/dboperationone.png)
+
+![Web Page47](../images/IaC/New/dboperationtwo.png)
