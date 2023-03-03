@@ -7,7 +7,7 @@ docker build -t stocksapidevopsproject .
 ```
 A message showing the building has finished will be displayed in the CLI:
 
-![Web Page5](images/Docker_DockerCompose/dockerbuildimage.png)
+![Web Page5](../images/Docker_DockerCompose/dockerbuildimage.png)
 
 To list the Docker images, type the following:
 
@@ -17,7 +17,7 @@ docker images
 
 I am able to see the recent docker image I have just created :
 
-![Web Page5](images/Docker_DockerCompose/dockerimages.png)
+![Web Page5](../images/Docker_DockerCompose/dockerimages.png)
 
 The docker image should be available in Docker Desktop as well.
 
@@ -26,13 +26,13 @@ I have run the Docker image I created as following:
 ```
 docker run -d -p 8000:5000 stocksapidevopsproject
 ```
-![Web Page5](images/Docker_DockerCompose/dockerrun.png)
+![Web Page5](../images/Docker_DockerCompose/dockerrun.png)
 
 The web server should start on http://localhost:8000 as shown following:
 
-![Web Page6](images/Docker_DockerCompose/dockerrunsuccessful.png)
+![Web Page6](../images/Docker_DockerCompose/dockerrunsuccessful.png)
 
-![Web Page7](images/Docker_DockerCompose/dockerrunsuccessfulcurd.png)
+![Web Page7](../images/Docker_DockerCompose/dockerrunsuccessfulcurd.png)
 
 Press CTRL+C to stop the web server.
 
@@ -52,7 +52,7 @@ docker push amrjazouli/stocksapiproject
 
 The Docker image should be available on Docker Hub:
 
-![Web Page8](images/Docker_DockerCompose/dockerimagepushedtohub.png)
+![Web Page8](../images/Docker_DockerCompose/dockerimagepushedtohub.png)
 
 ## 2. Container orchestration using Docker Compose:
 
