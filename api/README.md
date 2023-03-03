@@ -43,7 +43,7 @@ flask run
 
 It will start a web server available in your browser at http://localhost:5000.
 
-![Web Page](images/FlaskWeb/Frontpage.png)
+![Web Page](../images/FlaskWeb/Frontpage.png)
 
 2. The first page displays a welcome message, then click on 'Start application'.
 Create a stock transaction:
