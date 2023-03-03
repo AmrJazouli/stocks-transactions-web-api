@@ -24,7 +24,7 @@ vagrant up
 
 ![Web Page45](../images/IaC/frontpage.png)
 
-We make some operations on the api through the browser webpage, and we query the database if operations have been successfully performed.
+We make some operations on the api through the browser webpage, and we query the database simultaneously to check if operations have been successfully performed.
 
 ![Web Page46](../images/IaC/New/dboperationone.png)
 

@@ -32,6 +32,6 @@ minikube dashboard
 
 ![Web Page22](../images/Kubernetes/minikubedashboard_3.png)
 
-Then, we connect to the pod of mongodb, to query the database and check if insertion, update and delete operations are performed successfully while we interact with the api through the browser webpage.
+Then, we connect to the pod of mongodb, to query the database and check simultaneously if insertion, update and delete operations are performed successfully while we interact with the api through the browser webpage.
 
 ![Web Page23](../images/Kubernetes/New/dboperations.png)

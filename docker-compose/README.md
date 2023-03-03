@@ -79,6 +79,8 @@ A successful message is displayed as following:
 
 ![Web Page13](../images/Docker_DockerCompose/insertsuccessful.png)
 
+We query the database and check simultaneously if insertion, update and delete operations are performed successfully while we interact with the api through the browser webpage.
+
 ![Web Page131](../images/Docker_DockerCompose/New/DockerHub.png)
 
 I tried to update and delete to check the other CURD operations:
