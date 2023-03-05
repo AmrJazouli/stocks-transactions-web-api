@@ -18,6 +18,7 @@ Below is the structure of the repository:
 ```
 
 ├──.github/
+|
 ├──api/
 |    ├──templates/
 |    ├──app.py
@@ -25,18 +26,23 @@ Below is the structure of the repository:
 |    ├──README.md
 |    ├──requirements.txt
 |    ├──test_functionalities.py
+|
 ├──docker-compose/
 |    ├──docker-compose.yml
 |    ├──README.md
+|
 ├──iac-vargrant-ansible/
 |    ├──main.yml
 |    ├──README.md
 |    ├──Vagrantfile
+|
 ├──images/
+|
 ├──k8s/
 |    ├──deployment.yml
 |    ├──README.md
 |    ├──service.yml
+|
 ├──README.md
 
 ```
