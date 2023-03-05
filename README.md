@@ -31,7 +31,7 @@ Below is the structure of the repository:
 |    ├──docker-compose.yml
 |    ├──README.md
 |
-├──iac-vargrant-ansible/
+├──iac-vagrant-ansible/
 |    ├──main.yml
 |    ├──README.md
 |    ├──Vagrantfile
