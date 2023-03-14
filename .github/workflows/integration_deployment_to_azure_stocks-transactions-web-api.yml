@@ -36,12 +36,21 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
         
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
-      - name: Test with pytest
+      - name: Install coverage
+        run: pip install coverage
+      
+      
+      - name: Test with coverage
         run: |
-          pytest
+          coverage run -m pytest
       
+      
+      - name: Generate coverage report
+        run: |
+          coverage html
+      
+            
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:

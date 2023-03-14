@@ -3,47 +3,12 @@
   gather_facts: no
   become: yes
 
-  #vars:
-    #api_location: "{{ lookup('file', '../api/ansible_inventory.ini') | dirname }}"
-  #  api_location: C:/Users/Amr.DSTI/Desktop/Done/DevOps/ToShowcase2023/stocks-transactions-web-api/api/app.py
-  #  target_location: /home/vagrant
 
   tasks:
 
-    #- name: Copy application files
-    #  copy:
-    #    src: "{{ api_location }}"
-    #    dest: "{{ target_location }}"
-
-
-    #- name: Check if Users exists
-    #  win_stat:
-        #path: C:/Users/UserOne/Desktop/api/app.py
-        #path: C:\Users
-    #    path: /$PWD
-    #  register: folder_info
-
-    #- debug:
-    #    var: folder_info.stat.checksum  
-
-
-
-
-    #- name: Copy application files
-    #  copy:
-        #src: C:\Users\Amr.DSTI\Desktop\Done\DevOps\ToShowcase2023\stocks-transactions-web-api\api\app.py
-        #src: /Users/Amr.DSTI/Desktop/Done/DevOps/ToShowcase2023/stocks-transactions-web-api/api/app.py 
-    #    src: ~/api/app.py
-    #    dest: /home/vagrant
 
   - name: Copy the flask app file to the Vagrant servers
     copy:  
-      #src: /$PWD/app.py
-      #src: /$PWD/./api/app.py
-      #src: /$PWD/../api/app.py
-      #src: /api/app
-      #src: /$PWD/../api/
-      #src: C:/Users/Amr.DSTI/Desktop/Done/DevOps/ToShowcase2023/stocks-transactions-web-api/api/app.py
       src: /$PWD/app.py
       dest: /home/vagrant
       
