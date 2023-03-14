@@ -13,10 +13,7 @@ COPY app.py /app/app.py
 COPY templates /app/templates
 
 
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
-
-
-
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=80"]
 
 
 
