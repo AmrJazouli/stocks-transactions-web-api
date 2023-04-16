@@ -4,6 +4,7 @@
 
 name: Build and deploy Python app to Azure Web App - stocks-transactions-web-api
 
+
 on:
   push:
     branches:
@@ -58,8 +59,8 @@ jobs:
           path: |
             . 
             !myvenv/
-            
-                        
+
+
     services:
       mongodb:
         image: mongo
